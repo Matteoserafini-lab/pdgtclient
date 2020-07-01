@@ -12,7 +12,7 @@ namespace PDGTClient
     class Client
     {
         private string token = "";
-        private static string baseUrl = "https://sheltered-thicket-14507.herokuapp.com/";
+        private static string baseUrl = "https://dati-covid.herokuapp.com/";
         // private static string baseUrl = "http://localhost:35101/";
         public async Task home(Label display){
             using HttpClient client = new HttpClient();
@@ -130,7 +130,7 @@ namespace PDGTClient
             }
             string date = (de.Text != "") ? de.Text : Date();
             if(ls.Count == 0) {
-                string url2 = $"{baseUrl}italy/{n.Text}?date={date}";
+                string url2 = $"{baseUrl}italy/{n.Text}/{date}";
                 using HttpClient client2 = new HttpClient();
                 client2.DefaultRequestHeaders.Add("Token", token);
                 display.Text = "search in progress";
@@ -139,7 +139,7 @@ namespace PDGTClient
                 return $"\t{(int)response2.StatusCode}\t{response2.StatusCode}";
             }
             string body = JsonConvert.SerializeObject(ls);
-            string url = $"{baseUrl}regions/{n.Text}?date={date}";
+            string url = $"{baseUrl}regions/{n.Text}/{date}";
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
