@@ -50,6 +50,12 @@ namespace PDGTClient
         {
             builder.Autoconnect(this);
             DeleteEvent += Window_DeleteEvent;
+            login.Clicked += login_Clicked;
+            signup.Clicked += signup_Clicked;
+            delete.Clicked += delete_Clicked;
+            update.Clicked += update_Clicked;
+            logout.Clicked += logout_Clicked;
+            search.Clicked += search_Clicked;
             home.Clicked += home_Clicked;
             Abruzzo.Clicked += Abruzzo_Clicked;
             Basilicata.Clicked += Basilicata_Clicked;
@@ -79,7 +85,51 @@ namespace PDGTClient
             Application.Quit();
         }
 
-       
+        private async void login_Clicked(object sender, EventArgs a) {
+            try {
+                this.status.Text = await this.client.login(display, user, psw, login_status);    
+            } catch (Exception){
+                display.Text = "unable to connect to server";
+            }
+        }
+        private async void signup_Clicked(object sender, EventArgs a) {
+            try {
+                this.status.Text = await this.client.signup(display, user, psw);    
+            } catch (Exception){
+                display.Text = "unable to connect to server";
+            }
+            
+        }
+        private async void delete_Clicked(object sender, EventArgs a) {
+            try {
+                this.status.Text = await this.client.delete(display, user, login_status);    
+            } catch (Exception){
+                display.Text = "unable to connect to server";
+            }      
+            psw.Text= "";
+        }
+        private async void update_Clicked(object sender, EventArgs a) {
+            try {
+                this.status.Text = await this.client.update(display, user, psw);    
+            } catch (Exception){
+                display.Text = "unable to connect to server";
+            }  
+        }
+        private async void logout_Clicked(object sender, EventArgs a) {
+            try {
+                this.status.Text = await this.client.logout(display, user, psw, login_status);    
+            } catch (Exception){
+                display.Text = "unable to connect to server";
+            }
+        }
+        private async void search_Clicked(object sender, EventArgs a) {
+            try {
+                this.status.Text = await this.client.search(display, user, req, dataEntry);    
+            } catch (Exception){
+                display.Text = "unable to connect to server";
+            }
+            psw.Text="";
+        }
         private async void home_Clicked(object sender, EventArgs a) {
             try {
                 await this.client.home(display);    
