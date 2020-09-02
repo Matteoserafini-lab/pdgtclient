@@ -1,17 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "GPOS7jtblMUTodwz6OaK5g/ku3oT9c98NgVJQzDQt7Xf1fuPbd/0UdCxjc1KQg9wK9M2zpiPPNLsk26Lcw0OMA==",
+  "dgSpecHash": "cP3gsrXynoQEbN+O938op6oC0nxq/hL3mfFNKG8ccmHNQhMqhEvxJesyp5IBHug1ci5PwqRiFsY1jnff0/y0Zw==",
   "success": true,
-  "projectFilePath": "/home/matgab/PDGT2020/pdgtclient/pdgtclient.csproj",
+  "projectFilePath": "/home/matgab/Uni/PDGT2020/pdgtclient/pdgtclient.csproj",
   "expectedPackageFiles": [
-    "/home/matgab/.nuget/packages/atksharp/3.22.25.98/atksharp.3.22.25.98.nupkg.sha512",
-    "/home/matgab/.nuget/packages/cairosharp/3.22.25.98/cairosharp.3.22.25.98.nupkg.sha512",
-    "/home/matgab/.nuget/packages/gdksharp/3.22.25.98/gdksharp.3.22.25.98.nupkg.sha512",
-    "/home/matgab/.nuget/packages/giosharp/3.22.25.98/giosharp.3.22.25.98.nupkg.sha512",
-    "/home/matgab/.nuget/packages/glibsharp/3.22.25.98/glibsharp.3.22.25.98.nupkg.sha512",
-    "/home/matgab/.nuget/packages/gtksharp/3.22.25.98/gtksharp.3.22.25.98.nupkg.sha512",
+    "/home/matgab/.nuget/packages/atksharp/3.22.25.125/atksharp.3.22.25.125.nupkg.sha512",
+    "/home/matgab/.nuget/packages/cairosharp/3.22.25.125/cairosharp.3.22.25.125.nupkg.sha512",
+    "/home/matgab/.nuget/packages/gdksharp/3.22.25.125/gdksharp.3.22.25.125.nupkg.sha512",
+    "/home/matgab/.nuget/packages/giosharp/3.22.25.125/giosharp.3.22.25.125.nupkg.sha512",
+    "/home/matgab/.nuget/packages/glibsharp/3.22.25.125/glibsharp.3.22.25.125.nupkg.sha512",
+    "/home/matgab/.nuget/packages/gtksharp/3.22.25.125/gtksharp.3.22.25.125.nupkg.sha512",
     "/home/matgab/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
-    "/home/matgab/.nuget/packages/pangosharp/3.22.25.98/pangosharp.3.22.25.98.nupkg.sha512"
+    "/home/matgab/.nuget/packages/pangosharp/3.22.25.125/pangosharp.3.22.25.125.nupkg.sha512"
   ],
   "logs": []
 }

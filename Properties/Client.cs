@@ -13,7 +13,7 @@ namespace PDGTClient
     {
         private string token = "";
         private static string baseUrl = "https://dati-covid.herokuapp.com/";
-        // private static string baseUrl = "http://localhost:35101/";
+        // private static string baseUrl = "http://localhost:36745/";
         public async Task home(Label display){
             using HttpClient client = new HttpClient();
                 display.Text = await client.GetStringAsync(baseUrl);
