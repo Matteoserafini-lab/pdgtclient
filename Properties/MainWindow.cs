@@ -18,6 +18,7 @@ namespace PDGTClient
         [UI] private Button delete = null;
         [UI] private Button update = null;
         [UI] private Button logout = null;
+        [UI] private Button visits = null;
         [UI] private Button home = null;
         [UI] private Entry dataEntry = null;
         [UI] private ToggleButton Abruzzo = null;
@@ -55,6 +56,7 @@ namespace PDGTClient
             delete.Clicked += delete_Clicked;
             update.Clicked += update_Clicked;
             logout.Clicked += logout_Clicked;
+            visits.Clicked += visits_Clicked;
             search.Clicked += search_Clicked;
             home.Clicked += home_Clicked;
             Abruzzo.Clicked += Abruzzo_Clicked;
@@ -118,6 +120,13 @@ namespace PDGTClient
         private async void logout_Clicked(object sender, EventArgs a) {
             try {
                 this.status.Text = await this.client.logout(display, user, psw, login_status);    
+            } catch (Exception){
+                display.Text = "unable to connect to server";
+            }
+        }
+        private async void visits_Clicked(object sender, EventArgs a) {
+            try {
+                this.status.Text = await this.client.visits(display, req, login_status);    
             } catch (Exception){
                 display.Text = "unable to connect to server";
             }

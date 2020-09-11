@@ -13,7 +13,7 @@ namespace PDGTClient
     {
         private string token = "";
         private static string baseUrl = "https://dati-covid.herokuapp.com/";
-        // private static string baseUrl = "http://localhost:36745/";
+        // private static string baseUrl = "http://localhost:38551/";
         public async Task home(Label display){
             using HttpClient client = new HttpClient();
                 display.Text = await client.GetStringAsync(baseUrl);
@@ -38,7 +38,23 @@ namespace PDGTClient
             }
             return $"\t{(int)response.StatusCode}\t{response.StatusCode}";
         }
-
+        public async Task<string> visits(Label display,  List<string> ls, Label lb){
+            string url;
+            if(ls.Count == 0){
+                url = $"{baseUrl}visits";
+            } else {
+                url = $"{baseUrl}visits?region={ls[0]}";
+            }
+            using HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(url);
+            display.Text =  $"{JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync())}";
+            if(response.IsSuccessStatusCode){
+                lb.Text = "logged in";
+            } else {
+                lb.Text = "not logged in";
+            }
+            return $"\t{(int)response.StatusCode}\t{response.StatusCode}";
+        }
         public async Task<string> signup(Label display, Entry n, Entry p){
             if(n.Text == ""){
                 display.Text = "{\n\t'error': 'no username provided'\n}";
@@ -90,7 +106,6 @@ namespace PDGTClient
             }
             string url = $"{baseUrl}account/{n.Text}";
             using HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("password", p.Text);
             client.DefaultRequestHeaders.Add("token", this.token);
             var action = new FormUrlEncodedContent(new[]
             {
@@ -142,7 +157,7 @@ namespace PDGTClient
             string url = $"{baseUrl}regions/{n.Text}/{date}";
             var request = new HttpRequestMessage
             {
-                Method = HttpMethod.Get,
+                Method = HttpMethod.Post,
                 RequestUri = new Uri(url),
                 Content = new StringContent(body, Encoding.UTF8 , "application/json")
             };
